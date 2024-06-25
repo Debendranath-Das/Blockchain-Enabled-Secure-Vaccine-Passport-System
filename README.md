@@ -1,4 +1,4 @@
-# Blockchain-Enabled-Secure-Vaccine-Passport-System
+# Blockchain-Enabled-Secure-Vaccine-Passport-System [![DOI](https://zenodo.org/badge/819958369.svg)](https://zenodo.org/doi/10.5281/zenodo.12533358)
 
 # Smart Contracts
 Written in Solidity and deployed on Sepolia Testnet.
