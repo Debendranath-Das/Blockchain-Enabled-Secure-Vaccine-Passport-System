@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vaccine Passport System: Utility Software </title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: linear-gradient(to bottom right, rgb(250, 201, 234), rgb(164, 248, 237));
+        background-image: url("vaccineImage.jpg");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h1 {
+        color: #333;
+        font-size: 25px;
+        margin-top: 140px;
+        margin-bottom: 40px;
+    }
+
+    #projectTitle {
+      color: #053081; 
+      font-size: 45px;
+      font-weight: bold;
+      margin-top: 1px;
+      margin-bottom: 80px;
+      padding-top: -50px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .options {
+        display: flex;
+        justify-content: center;
+    }
+
+    .option {
+        flex: 1;
+        margin: 0 10px;
+        flex-basis: 50%;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 40px;
+        background-color: #fff;
+        color: #333;
+        font-size: 18px;
+        border-radius: 30px;
+        border: 2px solid #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        width: 230px; 
+        height: 50px;
+        margin-right: 5px; 
+    }
+
+    input[type="radio"]:checked + label {
+        background-color: #333;; 
+        color: #fff;
+    }
+
+    label:hover {
+        background-color: #555;
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 24px;
+        }
+    
+        label {
+            padding: 15px 30px;
+            font-size: 16px;
+        }
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: #f1f1f1;
+        padding: 5px 0;
+    }
+
+    footer p {
+        color: #888;
+        font-size: 14px;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1 id="projectTitle"> Vaccine Passport System</h1>
+    <h1>Welcome to the Utility Software Section</h1>
+    <div class="options">
+      <input type="radio" id="option1" name="software" value="govt">
+      <label for="option1">Government</label>
+
+      <input type="radio" id="option2" name="software" value="vaccinationCenter">
+      <label for="option2">Vaccination Center</label>
+      
+      <input type="radio" id="option3" name="software" value="citizen">
+      <label for="option3">Citizen</label>
+
+      <input type="radio" id="option4" name="software" value="verfier">
+      <label for="option4">Verifier</label>
+    </div>
+    <footer>
+        <p class="copyright">
+            &copy; 2023 Vaccine Passport System. All rights reserved. Created by Debendranath Das, Indian Statistical Institute, Kolkata.
+        </p>
+    </footer>
+  </div>  
+  <script>
+    const radio = document.getElementsByName("software");
+    radio[0].addEventListener("click", () => {
+        window.location.href = '/govt';
+    });
+    radio[1].addEventListener("click", () => {
+        window.location.href = '/vaccination_center';
+    });
+    radio[2].addEventListener("click", () => {
+        window.location.href = '/citizen';
+    });
+    radio[3].addEventListener("click", () =>{
+        window.location.href = '/verifier';
+    });
+  </script>
+</body>
+</html>

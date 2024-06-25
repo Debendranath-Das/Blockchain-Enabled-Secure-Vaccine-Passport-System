@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Computing Merkle Tree Root</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    #pagetitle {
+        background-color: black;
+        color: greenyellow;
+        text-align: center;
+        border-radius: 100px;
+        position: relative; 
+    }
+
+    #homeButton {
+        font-size:25px;
+        color:greenyellow;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    #findingMR, #findingMRProof, #authenticateVaccineVial, #computeHash, #generateReencryptionKey, #knowPublicKey, #downloadVP {
+        padding: 10px 100px 100px 100px;
+        background-image: linear-gradient(to bottom right, rgb(250, 201, 234), rgb(164, 248, 237));
+        text-align: center;
+        border-radius: 25px;
+        color: blue;
+    }
+
+    #MR_compute, #MR_proof_compute, #verifyVial, #calHash, #genRK, #knowPK, #downVP {
+        color: rebeccapurple;
+        /* background: rgb(243, 238, 240); */
+        display: inline-flex;
+        border-radius: 10px;
+    }
+
+    #merkleRootOutput, #merkleProofOutput{
+        padding: 10px;
+        color: green;
+        font-weight: bold;
+    }
+
+    #verifyVacc {    
+        padding: 10px 100px 100px 100px;
+        background-color: cornsilk;
+        text-align: center;
+        border-radius: 25px;
+        color: blue;    
+    }
+
+    #Verify_title {
+        color: rebeccapurple;
+        background: rgb(235, 219, 190);
+        display: inline-flex;
+        border-radius: 10px;
+    }
+
+    #jsonOutput {
+      display: block;
+      margin: 0 auto;
+      color: black;
+      width: 70%;
+      font-weight: bold;
+    }
+
+    textarea:hover {
+      background-color: white; 
+      cursor: initial; 
+    }
+
+    #outputVialAuthenticity, #outputHash, #outputPK{
+      padding: 10px;
+      color: black;
+      font-weight: bold;
+    }
+    #outputRK {
+      padding: 10px;
+      color: black;
+      font-weight: bold;
+      white-space: pre-wrap; /* Preserves line breaks and wraps text */
+      word-break: break-word; /* Breaks long words onto the next line */
+      width: 46%; /* Adjust the width as needed */
+      min-height: 150px; /* Adjust the minimum height as needed */
+      /* display: flex; */
+      align-items: center; 
+      justify-content: center;
+      text-align: left;
+      /* border: 1px solid #ccc; */ /* Optional: Add a border for visual distinction */
+    }
+
+    .errorMessage{
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Style all textboxes */
+    input[type="text"],
+    textarea {
+      width: 350px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: black;
+    }
+
+    input[type="password"]{
+        width: 350px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        color: black;
+        background-color:white;
+    }
+
+    form{
+      margin-top: 20px;
+    }
+
+    table{
+      margin-bottom: 10px;
+    }
+
+    td{
+      padding: 5px;
+      font-weight: bold;
+    }
+
+    ::placeholder {
+      color: #999; 
+      opacity: 0.5;
+      font-size: small;
+    }
+
+    label{
+      font-weight: bold;
+    }
+    /* Style all buttons */
+    button,
+    input[type="button"],
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px 16px;
+    }
+
+    /* Style hover and focus states */
+    button:hover,
+    input[type="button"]:hover,
+    input[type="submit"]:hover,
+    button:focus,
+    input[type="button"]:focus,
+    input[type="submit"]:focus
+    {
+      outline: none;
+      background-color: #3e8e41;
+    }
+
+    input[type="reset"] {
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px 16px;
+    }
+    input[type="reset"]:hover {
+      outline: none;
+      background-color: rgb(134, 25, 25)
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: #f1f1f1;
+      padding: 5px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    
+    .footer-content p {
+      color: #888;
+      font-size: 14px;
+      margin: 0;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <center>
+    <div id="pagetitle">
+      <i class="glyphicon glyphicon-home" id="homeButton"></i>
+      <h1>Citizen Helpdesk</h1>
+    </div>
+
+    <div id="selectFunction">
+      <table>
+        <tr>
+          <td style="font-weight: bold; color: red;">Select Function: </td>
+          <td>
+            <label for="computeHashOfPersonalInfo">Compute Hash of Private Information</label>
+            <input type="radio" name="functionSelector" id="computeHashOfPersonalInfo" value="computeHashOfPersonalInfo">
+          </td>
+          <td>
+            <label for="authenticateVial">Check Authenticity of Vaccine Vial</label>
+            <input type="radio" name="functionSelector" id="authenticateVial" value="authenticateVial">
+          </td>
+          <td>
+            <label for="generateRK">Generate Re-encryption Key for Verifier</label>
+            <input type="radio" name="functionSelector" id="generateRK" value="generateRK">
+          </td>
+          <td>
+            <label for="getPK">Know PK</label>
+            <input type="radio" name="functionSelector" id="getPK" value="getPK">
+          </td>
+          <td>
+            <label for="downAndDecVP">Download & Decrypt VP by CID</label>
+            <input type="radio" name="functionSelector" id="downAndDecVP" value="downAndDecVP">
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="computeHash" style="display: none;">
+      <h2 id="calHash">Computing Keccak256 Hash of Citizen's Private Information</h2>
+      <form id="myForm">
+        <center>
+        <table>
+            <tr>
+                <td><label for="name">Enter Your Full Name:</label></td>
+                <td><input type="text" id="name" name="name" placeholder="Alphabets only, 1st char in Capital, 3<=length<=30" required></td>
+				        <td><span class="errorMessage" id="error_name"></span></td>
+            </tr>
+            <tr>
+                <td><label for="city">Enter Your City/Town/Village Name:</label></td>
+                <td><input type="text" id="city" name="city" placeholder="Alphabets only, 1st charin Capital, 3<=length<=20" required></td>
+				        <td><span class="errorMessage" id="error_city"></span></td>	
+            </tr>
+            <tr>
+                <td><label for="dob">Enter Your Date of Birth:</label></td>
+                <td><input type="text" id="dob" placeholder="DD.MM.YYYY" required></td>
+				        <td><span class="errorMessage" id="error_dob"></span></td>
+            </tr>
+            <tr>
+                <td><label for="aadhaar">Enter Your 12 Digits Aadhaar ID:</label></td>
+                <td><input type="text" id="aadhaar" placeholder="12 Digits Number" required></td>
+				        <td><span class="errorMessage" id="error_aadhaar"></span></td>
+            </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <td><button type="submit">Compute Hash</button></td>
+            <td><input type="reset" onclick="resetForm_myForm()"></td>
+          </tr>
+        </table>
+        </center>
+      </form>
+        <div id="outputHash"></div>
+    </div>
+
+    <div id="authenticateVaccineVial" style="display: none">
+      <h2 id="verifyVial">Checking Authenticity of Vaccine Vial</h2> <br><br>
+      <form id="form_vial_authenticity" onsubmit="submitForm_vial_authenticity(event)">
+        <center>
+        <table>
+            <tr>
+                <td>
+                    <label for="MRRoot">Enter Merkle Tree Root Hash: </label>
+                </td>
+                <td>
+                    <input type="text" id="MRRoot" placeholder="Hexadecimal String of 64 Chars, prefix with '0x'"/>
+                </td>
+                <td>
+                    <span class="errorMessage" id="error_MRRoot"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vialID">Enter Vial ID: </label>
+                </td>
+                <td>
+                    <input type="text" id="vialID" placeholder="Alphanumeric String"/>
+                </td>
+                <td>
+                    <span class="errorMessage" id="error_vialID"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="MRProof">Enter Merkle Proof for the Vial (Comma-separated Hash Values): </label>
+                </td>
+                <td>
+                    <input type="text" id="MRProof" placeholder="#log(n) no of hash values"/>
+                </td>
+                <td>
+                    <span class="errorMessage" id="error_MRProof"></span>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <td><button type="submit">Check Vial Authenticity</button></td>
+            <td><input type="reset" onclick="resetForm_form_vial_authenticity()"></td>
+          </tr>
+        </table>
+        </center>
+      </form>
+      <br>
+      <div id="outputVialAuthenticity"></div>
+    </div>
+
+    <div id="generateReencryptionKey" style="display: none">
+      <h2 id="genRK">Generating Re-Encryption Key(RK) for Verifier to be used in Proxy Re-Encryption</h2> <br><br>
+      <form id="form_genRK" onsubmit="submitForm_form_genRK(event)">
+        <center>
+        <table>
+          <tr>
+            <td><label for="sk">Enter Your Secret Key:</label></td>
+            <td><input type="password" id="sk" name="sk" placeholder="Hex String of 64 Chars (Ethereum Acc), prefixed '0x'" required></td>
+            <td><span class="errorMessage" id="error_sk"></span></td>
+          </tr>
+          <tr>
+            <td><label for="pk">Enter Verifier's Public Key:</label></td>
+            <td><input type="text" id="pk" name="pk" placeholder="Hex String of 128 Chars (Ethereum Acc), prefixed '0x'" required></td>
+            <td><span class="errorMessage" id="error_pk"></span></td>	
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <td><button type="submit">Generate RK</button></td>
+            <td><input type="reset" onclick="resetForm_form_genRK()"></td>
+          </tr>
+        </table>
+        </center>
+      </form>
+      <br>
+      <center><div id="outputRK"></div></center>
+    </div>
+
+    <div id="knowPublicKey" style="display: none">
+      <h2 id="knowPK">Getting Public Key and Ethereum Wallet Address</h2> <br><br>
+      <form id="form_knowPK" onsubmit="submitForm_form_knowPK(event)">
+        <center>
+        <table>
+          <tr>
+            <td><label for="secretKey">Enter Your Secret Key:</label></td>
+            <td><input type="password" id="secretKey" name="secretKey" placeholder="Hex String of 64 Chars (Ethereum Acc), prefixed '0x'" required></td>
+            <td><span class="errorMessage" id="error_secretKey"></span></td>
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <td><button type="submit">Get PK & ETH Address</button></td>
+            <td><input type="reset" onclick="resetForm_form_knowPK()"></td>
+          </tr>
+        </table>
+        </center>
+      </form>
+      <br>
+      <center><div id="outputPK"></div></center>
+    </div>
+
+    <div id="downloadVP" style="display: none;">
+      <h2 id="downVP">Downloading and Decrypting Vaccine Passport</h2> <br><br>
+      <form id="form_downloadVP" onsubmit="submitForm_form_downloadVP(event)">
+        <center>
+        <table>
+          <tr>
+            <td><label for="csk">Enter Your Secret Key:</label></td>
+            <td><input type="password" id="csk" name="csk" placeholder="Hex String of 64 Chars (Ethereum Acc), prefixed '0x'" required></td>
+            <td><span class="errorMessage" id="error_csk"></span></td>
+          </tr>
+          <tr>
+            <td><label for="cid">Enter IPFS CID:</label></td>
+            <td><input type="text" id="cid" name="cid" placeholder="Type IPFS content identifier.." required></td>
+            <td><span class="errorMessage" id="error_cid"></span></td>	
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <td><button type="submit">Download & Decrypt VP</button></td>
+            <td><input type="reset" onclick="resetForm_form_downloadVP()"></td>
+          </tr>
+        </table>
+        </center>
+      </form>
+      <br>
+      <center><div id="outputVP"></div></center>
+      <textarea id="jsonOutput" rows="10" cols="150" style="color: black; display: none;" readonly></textarea>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <p>
+          &copy; 2023 Vaccine Passport System. All rights reserved. Created by Debendranath Das, Indian Statistical Institute, Kolkata.
+        </p>
+      </div>
+    </footer>
+  </center>
+  <script>
+
+    const radioButtons = document.getElementsByName("functionSelector");
+    radioButtons[0].addEventListener("change", () => {
+      resetForm_myForm();
+      document.getElementById("computeHash").style.display = "block";
+      document.getElementById("authenticateVaccineVial").style.display = "none";
+      document.getElementById("generateReencryptionKey").style.display = "none";
+      document.getElementById("knowPublicKey").style.display = "none";
+      document.getElementById("downloadVP").style.display = "none";
+    });
+    radioButtons[1].addEventListener("change", () => {
+      resetForm_form_vial_authenticity();
+      document.getElementById("computeHash").style.display = "none";
+      document.getElementById("authenticateVaccineVial").style.display = "block";
+      document.getElementById("generateReencryptionKey").style.display = "none";
+      document.getElementById("knowPublicKey").style.display = "none";
+      document.getElementById("downloadVP").style.display = "none";
+    });
+    radioButtons[2].addEventListener("change", () => {
+      resetForm_form_genRK();
+      document.getElementById("computeHash").style.display = "none";
+      document.getElementById("authenticateVaccineVial").style.display = "none";
+      document.getElementById("generateReencryptionKey").style.display = "block";
+      document.getElementById("knowPublicKey").style.display = "none";
+      document.getElementById("downloadVP").style.display = "none";
+    });
+    radioButtons[3].addEventListener("change", () => {
+      resetForm_form_knowPK();
+      document.getElementById("computeHash").style.display = "none";
+      document.getElementById("authenticateVaccineVial").style.display = "none";
+      document.getElementById("generateReencryptionKey").style.display = "none";
+      document.getElementById("knowPublicKey").style.display = "block";
+      document.getElementById("downloadVP").style.display = "none";
+    });
+    radioButtons[4].addEventListener("change", () => {
+      resetForm_form_downloadVP();
+      document.getElementById("computeHash").style.display = "none";
+      document.getElementById("authenticateVaccineVial").style.display = "none";
+      document.getElementById("generateReencryptionKey").style.display = "none";
+      document.getElementById("knowPublicKey").style.display = "none";
+      document.getElementById("downloadVP").style.display = "block";
+    });
+
+    //This part is for computing citizen's private info..
+    const myForm = document.getElementById("myForm");
+    const name = document.getElementById("name");
+    const city = document.getElementById("city");
+    const dob = document.getElementById("dob");
+    const aadhaar = document.getElementById("aadhaar");
+    const error_name = document.getElementById("error_name");
+    const error_city = document.getElementById("error_city");
+    const error_dob = document.getElementById("error_dob");
+    const error_aadhaar = document.getElementById("error_aadhaar");
+    const outputHash = document.getElementById("outputHash");
+
+    function resetForm_myForm()
+    {
+      myForm.reset();
+      clearError_myForm();
+    }
+    function clearError_myForm()
+    {
+      outputHash.innerHTML = "";
+      error_name.classList.remove("error");
+      error_city.classList.remove("error");
+      error_dob.classList.remove("error");
+      error_aadhaar.classList.remove("error");
+      error_name.innerHTML = "";
+      error_city.innerHTML = "";
+      error_dob.innerHTML = "";
+      error_aadhaar.innerHTML = "";
+    }
+    
+    name.addEventListener("input", () => {
+      clearError_myForm();
+    });
+    city.addEventListener("input", () => {
+      clearError_myForm();
+    });
+    dob.addEventListener("input", () => {
+      clearError_myForm();
+    });
+    aadhaar.addEventListener("input", () => {
+      clearError_myForm();
+    });
+
+    function validateName(x)
+    {
+      var regex = /^[A-Z][a-z,A-Z, ]{2,29}$/;
+      var isValid = true;
+      if(!regex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    function validateCity(x)
+    {
+      var regex = /^[A-Z][a-z,A-Z]{2,19}$/;
+      var isValid = true;
+      if(!regex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    function validateDOB(x) 
+    {
+      // Split the date string into day, month, and year components
+      var dateParts = x.split(".");
+      var day = parseInt(dateParts[0]);
+      var month = parseInt(dateParts[1]);
+      var year = parseInt(dateParts[2]);
+      
+      // Check if the day, month, and year are valid
+      var isValid = true;
+      if (isNaN(day) || day < 1 || day > 31) 
+      {
+        isValid = false;
+      }
+      if (isNaN(month) || month < 1 || month > 12) 
+      {
+        isValid = false;
+      }
+      if (isNaN(year) || year < 1900 || year > 9999) 
+      {
+        isValid = false;
+      }
+      if (month == 2) 
+      {
+        // Check for leap year
+        var isLeapYear = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+        if (isLeapYear && day > 29) 
+        {
+          isValid = false;
+        } 
+        else if (!isLeapYear && day > 28) 
+        {
+          isValid = false;
+        }
+      } 
+      else if ([4, 6, 9, 11].includes(month) && day > 30) 
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    function validateAadhaar(x)
+    {
+      var regex = /^\d{12}$/;
+      var isValid = true;
+      if(!regex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+
+    myForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      if(!validateName(name.value.trim()))
+      {
+        document.getElementById("error_name").innerHTML = "Invalid Name!! Please enter a valid name.";
+        name.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_name").innerHTML = "";
+        name.classList.remove("error");
+      }
+
+      if(!validateCity(city.value.trim()))
+      {
+        document.getElementById("error_city").innerHTML = "Invalid City Name!! Please enter a valid city name.";
+        city.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_city").innerHTML = "";
+        city.classList.remove("error");
+      }
+
+      if(!validateDOB(dob.value.trim()))
+      {
+        document.getElementById("error_dob").innerHTML = "Invalid Date of Birth!! Please enter a valid DOB.";
+        dob.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_dob").innerHTML = "";
+        dob.classList.remove("error");
+      }
+
+      if(!validateAadhaar(aadhaar.value.trim()))
+      {
+        document.getElementById("error_aadhaar").innerHTML = "Invalid Aadhaar!! Please enter a valid aadhaar ID.";
+        aadhaar.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_aadhaar").innerHTML = "";
+        aadhaar.classList.remove("error");
+      }
+
+      // Submit the form if all fields are valid
+      if (!name.classList.contains("error") && !city.classList.contains("error") && !dob.classList.contains("error") && !aadhaar.classList.contains("error")) 
+      {
+        //computeHash(name.value.trim(),city.value.trim(),dob.value.trim(),aadhaar.value.trim());
+        const formData = {
+          name: name.value.trim(),
+          city: city.value.trim(),
+          dob: dob.value.trim(),
+          aadhaar: aadhaar.value.trim()
+        };
+
+        // Make an HTTP request to the server
+        const response = await fetch('/compute_hash', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        outputHash.innerHTML = `<span style="color: red; font-weight: bold">Output Hash: </span> ${data.hash}`;
+
+      }
+  });
+
+    
+    //This part is for checking vial authencity..
+    const form_vial_authenticity = document.getElementById("form_vial_authenticity");
+    const MRRoot = document.getElementById("MRRoot");
+    const vial_ID = document.getElementById("vialID");
+    const MR_Proof = document.getElementById("MRProof");
+    const error_MRRoot = document.getElementById("error_MRRoot");
+    const error_MRProof = document.getElementById("error_MRProof");
+    const outputVialAuthenticity = document.getElementById("outputVialAuthenticity");
+
+
+    function resetForm_form_vial_authenticity()
+    {
+      form_vial_authenticity.reset();
+      //also clear the error messages, if any..
+      clearError_form_vial_authenticity();
+    }
+    function clearError_form_vial_authenticity()
+    {
+      outputVialAuthenticity.innerText = "";
+      MR_Proof.classList.remove("error");
+      MRRoot.classList.remove("error");
+      error_MRProof.innerHTML = "";
+      error_MRRoot.innerHTML = "";
+    }
+    
+    MRRoot.addEventListener("input", () => {
+      clearError_form_vial_authenticity();
+    });
+    vial_ID.addEventListener("input", () => {
+      clearError_form_vial_authenticity();
+    });
+    MR_Proof.addEventListener("input", () => {
+      clearError_form_vial_authenticity();
+    });
+
+    // JavaScript code to handle the form submission and display the response JSON
+    async function submitForm_vial_authenticity(event) {
+      event.preventDefault(); // Prevent form submission and page reload
+
+      const vialID = vial_ID.value;
+      const MRProof = MR_Proof.value.split(',').map(x => x.trim());
+      const hashPattern = /^0x[a-fA-F0-9]{64}$/;
+
+      //Input Validation
+      if(!hashPattern.test(MRRoot.value.trim()))
+      {
+        document.getElementById("error_MRRoot").innerHTML = "Invalid Merkle Root Hash!!";
+        MRRoot.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_MRRoot").innerHTML = "";
+        MRRoot.classList.remove("error");
+      }
+      
+      let allProofsValid = true; // Track if all proofs are valid
+
+      for (let i = 0; i < MRProof.length; i++) {
+        if (!hashPattern.test(MRProof[i])) {
+          document.getElementById("error_MRProof").innerHTML = "Invalid Merkle Proof!!";
+          MR_Proof.classList.add("error");
+          allProofsValid = false; // Set flag to false if any proof is invalid
+          break;
+        }
+      }
+
+      if (allProofsValid) {
+        document.getElementById("error_MRProof").innerHTML = "";
+        MR_Proof.classList.remove("error");
+      }
+
+      if (!MRRoot.classList.contains("error") && !MR_Proof.classList.contains("error")) 
+      {
+        const formData = {
+          MRRoot: MRRoot.value,
+          vialID: vialID,
+          MRProof: MRProof
+        };
+
+        // Make an HTTP request to the server
+        const response = await fetch('/verify_vialID', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        try 
+        {
+          const data = await response.json();
+          console.log(data); // Log the parsed data to inspect it
+
+          if (data.verificationResult == true) 
+          {
+            document.getElementById("outputVialAuthenticity").innerHTML = `<span style="color: red; font-weight: bold">Congratulations!!</span> <br> Given the Merkle Tree Proof and the Merkle Root Value, the Vaccine Vial with ID ${data.vialID} is AUTHENTIC.`;
+          } 
+          else 
+          {
+            document.getElementById("outputVialAuthenticity").innerHTML = `<span style="color: red; font-weight: bold">Sorry!!</span> <br> Given the Merkle Tree Proof and the Merkle Root Value, the Vaccine Vial with ID ${data.vialID} is NOT AUTHENTIC.`;
+          }
+        } 
+        catch (error) 
+        {
+          console.error(error); // Log any JSON parsing error
+        }
+      }
+    }
+
+    //This part is for generating RK..
+    const form_genRK = document.getElementById("form_genRK");
+    const sk = document.getElementById("sk");
+    const pk = document.getElementById("pk");
+    const error_sk = document.getElementById("error_sk");
+    const error_pk = document.getElementById("error_pk");
+    const outputRK = document.getElementById("outputRK");
+    
+    function resetForm_form_genRK()
+    {
+      form_genRK.reset();
+      clearError_form_genRK();
+    }
+    function clearError_form_genRK()
+    {
+      outputRK.innerHTML = "";
+      error_sk.classList.remove("error");
+      error_pk.classList.remove("error");
+      error_sk.innerHTML = "";
+      error_pk.innerHTML = "";
+    }
+  
+    sk.addEventListener("input", () => {
+      clearError_form_genRK();
+    });
+    pk.addEventListener("input", () => {
+      clearError_form_genRK();
+    });
+    
+    function validatePK(x)
+    {
+      const pkRegex = /^(0x)(04)[0-9a-fA-F]{128}$/i;
+      var isValid = true;
+      if(!pkRegex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    function validateSK(x)
+    {
+      const skRegex = /^(0x)[0-9a-fA-F]{64}$/i;
+      var isValid = true;
+      if(!skRegex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+  
+    async function submitForm_form_genRK(event)
+    {
+      event.preventDefault();
+      //complete rest of the code..
+      if(!validatePK(pk.value.trim()))
+      {
+        document.getElementById("error_pk").innerHTML = "Invalid Public Key!! Please enter a valid Public Key.";
+        pk.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_pk").innerHTML = "";
+        pk.classList.remove("error");
+      }
+
+      if(!validateSK(sk.value.trim()))
+      {
+        document.getElementById("error_sk").innerHTML = "Invalid Secret Key!! Please enter a valid Secret Key.";
+        sk.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_sk").innerHTML = "";
+        sk.classList.remove("error");
+      }
+
+      if(!pk.classList.contains("error") && !sk.classList.contains("error"))
+      {
+        const formData = {
+          pk: pk.value.trim(),
+          sk: sk.value.trim()
+        };
+
+        // Make an HTTP request to the server
+        const response = await fetch('/compute_RK', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        outputRK.innerHTML = `<center><span style="color: red; font-weight: bold;">Re-encryption Key</span></center> 0x${data.rk} <br><br> <center><span style="color: red; font-weight: bold">Commitment of Re-encryption Key</span></center> ${data.rkHash}`;
+      }
+    }
+
+    //This part is for getting PK and Ethereum Wallet Address from SK.
+    const form_knowPK = document.getElementById("form_knowPK");
+    const secretKey = document.getElementById("secretKey");
+    const error_secretKey = document.getElementById("error_secretKey");
+    const outputPK = document.getElementById("outputPK");
+    
+    function resetForm_form_knowPK()
+    {
+      form_knowPK.reset();
+      clearError_form_knowPK();
+    }
+    function clearError_form_knowPK()
+    {
+      outputPK.innerHTML = "";
+      error_secretKey.classList.remove("error");
+      error_secretKey.innerHTML = "";
+    }
+  
+    secretKey.addEventListener("input", () => {
+      clearError_form_knowPK();
+    });
+  
+    async function submitForm_form_knowPK(event)
+    {
+      event.preventDefault();
+      //complete rest of the code..
+      if(!validateSK(secretKey.value.trim()))
+      {
+        document.getElementById("error_secretKey").innerHTML = "Invalid Secret Key!! Please enter a valid Secret Key.";
+        secretKey.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_secretKey").innerHTML = "";
+        secretKey.classList.remove("error");
+      }
+
+      if(!secretKey.classList.contains("error"))
+      {
+        const formData = {
+          secretKey: secretKey.value.trim()
+        };
+
+        // Make an HTTP request to the server
+        const response = await fetch('/get_PK', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        outputPK.innerHTML = `<center><span style="color: red; font-weight: bold;">Public Key</span></center> 0x${data.pk} <br><br> <center><span style="color: red; font-weight: bold;">Ethereum Account Address</span></center> 0x${data.ETH_Addr}`;
+      }
+    }
+
+    //This part is for downloading VP by CID..
+    const form_downloadVP = document.getElementById("form_downloadVP");
+    const csk = document.getElementById("csk");
+    const cid = document.getElementById("cid");
+    const error_csk = document.getElementById("error_csk");
+    const error_cid = document.getElementById("error_cid");
+    const outputVP = document.getElementById("outputVP");
+    const jsonOutput = document.getElementById("jsonOutput");
+
+    function resetForm_form_downloadVP()
+    {
+      form_downloadVP.reset();
+      clearError_form_downloadVP();
+    }
+    function clearError_form_downloadVP()
+    {
+      error_csk.classList.remove("error");
+      error_cid.classList.remove("error");
+      error_csk.innerHTML = "";
+      error_cid.innerHTML = "";
+      outputVP.innerHTML = "";
+      jsonOutput.value = "";
+      jsonOutput.style.display = "none"; 
+    }
+
+    csk.addEventListener("input", () => {
+      clearError_form_downloadVP();
+    });
+    cid.addEventListener("input", () => {
+      clearError_form_downloadVP();
+    });
+    
+    function validateCSK(x)
+    {
+      const skRegex = /^(0x)?([0-9a-f]{64})$/i;
+      var isValid = true;
+      if(!skRegex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    function validateCID(x)
+    {
+      const cidRegex = /^([0-9a-z]{46})$/i; 
+      var isValid = true;
+      if(!cidRegex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    
+    async function submitForm_form_downloadVP(event)
+    {
+      event.preventDefault();
+      //complete rest of the code..
+      if(!validateCSK(csk.value.trim()))
+      {
+        document.getElementById("error_csk").innerHTML = "Invalid Secret Key!! Please enter a valid Secret Key.";
+        csk.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_csk").innerHTML = "";
+        csk.classList.remove("error");
+      }
+
+      if(!validateCID(cid.value.trim()))
+      {
+        document.getElementById("error_cid").innerHTML = "Invalid CID!! Please enter a valid CID.";
+        cid.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_cid").innerHTML = "";
+        cid.classList.remove("error");
+      }
+
+      if(!csk.classList.contains("error") && !cid.classList.contains("error"))
+      {
+        const formData = {
+          csk: csk.value.trim(),
+          cid: cid.value.trim()
+        };
+
+        // Make an HTTP request to the server
+        const response = await fetch('/download_VP', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if(data["error"] != "")
+        {
+          outputVP.innerHTML = `<center><span style="color: red; font-weight: bold;">Error Occured !!</span></center> ${data.suggestion}`;
+        }
+        else
+        {
+          let vaccinePassport = JSON.parse(data.decrypted_VP);
+          console.log(vaccinePassport);
+          let json = '';
+          for (var key in vaccinePassport) 
+          {
+              if (vaccinePassport.hasOwnProperty(key)) 
+              {
+                  json += key + ': ' + vaccinePassport[key] + '\n';
+              }
+          }
+          document.getElementById("outputVP").innerHTML = '<center><span style="color: red; font-weight: bold;">Vaccine Passport</span></center>'; 
+          jsonOutput.style.display = "block";
+          document.getElementById("jsonOutput").value = json;
+        }
+      }
+    }
+  
+    const homeBtn = document.getElementById("homeButton");
+    homeBtn.addEventListener("click", () => {
+      window.location.href = '/';
+    });
+
+  </script>
+</body>
+</html>

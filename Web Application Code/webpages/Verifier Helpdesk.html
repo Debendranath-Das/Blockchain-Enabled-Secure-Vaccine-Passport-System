@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Computing Merkle Tree Root</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    #pagetitle {
+        background-color: black;
+        color: greenyellow;
+        text-align: center;
+        border-radius: 100px;
+        position: relative; 
+    }
+
+    #homeButton {
+        font-size:25px;
+        color:greenyellow;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    #findingMR, #findingMRProof, #authenticateVaccineVial, #verifyVP {
+        padding: 10px 100px 100px 100px;
+        background-image: linear-gradient(to bottom right, rgb(250, 201, 234), rgb(164, 248, 237));
+        text-align: center;
+        border-radius: 25px;
+        color: blue;
+    }
+
+    #MR_compute, #MR_proof_compute, #verifyVial, #VP_verify {
+        color: rebeccapurple;
+        /* background: rgb(243, 238, 240); */
+        display: inline-flex;
+        border-radius: 10px;
+    }
+
+    #merkleRootOutput, #merkleProofOutput{
+        padding: 10px;
+        color: green;
+        font-weight: bold;
+    }
+
+    #verifyVacc {    
+        padding: 10px 100px 100px 100px;
+        background-color: cornsilk;
+        text-align: center;
+        border-radius: 25px;
+        color: blue;    
+    }
+
+    #Verify_title {
+        color: rebeccapurple;
+        background: rgb(235, 219, 190);
+        display: inline-flex;
+        border-radius: 10px;
+    }
+
+    #calculatedRoot{
+        padding: 10px;
+        color: green;
+        font-weight: bold;
+    }
+
+    #verification{
+        padding: 10px;
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    #vialAuthenticityReport{
+      padding: 10px;
+      color: black;
+      font-weight: bold;
+    }
+
+    #jsonOutput {
+      display: block;
+      margin: 0 auto;
+      color: black;
+      width: 70%;
+      font-weight: bold;
+    }
+
+    textarea:hover {
+      background-color: white; 
+      cursor: initial; 
+    }
+    .errorMessage{
+      color: rgba(231, 86, 86, 0.911);
+      font-weight: bold;
+    }
+
+    /* Style all textboxes */
+    input[type="text"],
+    textarea {
+      width: 350px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: black;
+    }
+
+    input[type="password"]{
+        width: 350px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        color: black;
+    }
+
+    form{
+      margin-top: 20px;
+    }
+
+    table{
+      margin-bottom: 10px;
+    }
+
+    td{
+      padding: 5px;
+      font-weight: bold;
+    }
+
+    ::placeholder {
+      color: #999; 
+      opacity: 0.5;
+      font-size: small;
+    }
+
+    label{
+      font-weight: bold;
+    }
+    /* Style all buttons */
+    button,
+    input[type="button"],
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px 16px;
+    }
+
+    /* Style hover and focus states */
+    button:hover,
+    input[type="button"]:hover,
+    input[type="submit"]:hover,
+    button:focus,
+    input[type="button"]:focus,
+    input[type="submit"]:focus
+    {
+      outline: none;
+      background-color: #3e8e41;
+    }
+
+    input[type="reset"] {
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px 16px;
+    }
+    input[type="reset"]:hover {
+      outline: none;
+      background-color: rgb(134, 25, 25)
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: #f1f1f1;
+      padding: 5px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    
+    .footer-content p {
+      color: #888;
+      font-size: 14px;
+      margin: 0;
+      flex-grow: 1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <div id="pagetitle">
+      <i class="glyphicon glyphicon-home" id="homeButton"></i>
+      <h1>Verifier Helpdesk</h1>
+    </div>
+
+    <div id="verifyVP" class="div1" style="display: block">
+        <h2 id="VP_verify">Verification of Citizen's Vaccine Passport</h2> <br><br>
+        <form id="form_verifyVP" onsubmit="submitForm_form_verifyVP(event)">
+          <center>
+          <table>
+            <tr>
+              <td><label for="rk">Enter Re-encryption Key:</label></td>
+              <td><textarea id="rk" name="rk" placeholder="Type Re-Encryption Key here.." required></textarea></td>
+              <td><span class="errorMessage" id="error_rk"></span></td>
+            </tr>
+            <tr>
+              <td><label for="sk">Enter Secret Key:</label></td>
+              <td><input type="password" id="sk" name="sk" placeholder="Type Secret Key.." required></td>
+              <td><span class="errorMessage" id="error_sk"></span></td>	
+            </tr>
+            <tr>
+              <td><label for="cid">Enter IPFS CID:</label></td>
+              <td><input type="text" id="cid" name="cid" placeholder="Type IPFS content identifier.." required></td>
+              <td><span class="errorMessage" id="error_cid"></span></td>	
+            </tr>
+          </table>
+          <br>
+          <table>
+            <tr>
+              <td><button type="submit">Display VP</button></td>
+              <td><input type="reset" onclick="resetForm_form_verfiyVP()"></td>
+            </tr>
+          </table>
+          </center>
+        </form>
+        <br>
+        <div id="outputVP"></div>
+        <textarea id="jsonOutput" rows="10" cols="150" style="color: black; display: none;" readonly></textarea>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <p>
+          &copy; 2023 Vaccine Passport System. All rights reserved. Created by Debendranath Das, Indian Statistical Institute, Kolkata.
+        </p>
+      </div>
+    </footer>
+  </center>
+  <script>
+
+    const verifyVP = document.getElementById("verifyVP");
+    const form_verifyVP = document.getElementById("form_verifyVP");
+    const rk = document.getElementById("rk");
+    const sk = document.getElementById("sk");
+    const cid = document.getElementById("cid");
+    const error_rk = document.getElementById("error_rk");
+    const error_sk = document.getElementById("error_sk");
+    const error_cid = document.getElementById("error_cid");
+    const outputVP = document.getElementById("outputVP");
+    const jsonOutput = document.getElementById("jsonOutput");
+
+    function clearError_form_verifyVP()
+    {
+      error_rk.classList.remove("error");
+      error_sk.classList.remove("error");
+      error_cid.classList.remove("error");  
+      error_rk.innerHTML = "";
+      error_sk.innerHTML = "";
+      error_cid.innerHTML = "";
+      outputVP.innerHTML = "";
+      jsonOutput.value = "";
+      jsonOutput.style.display = "none"; 
+    }
+    function resetForm_form_verfiyVP()
+    {
+      form_verifyVP.reset();
+      clearError_form_verifyVP();
+    }
+
+    rk.addEventListener("input", () => {
+      clearError_form_verifyVP();
+    });
+    sk.addEventListener("input", () => {
+      clearError_form_verifyVP();
+    });
+    cid.addEventListener("input", () => {
+      clearError_form_verifyVP();
+    });
+
+    
+
+    function validateRK(x)
+    {
+      const rkRegex = /^(0x)?([0-9a-f]{194})$/i;
+      var isValid = true;
+      if(!rkRegex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    function validateSK(x)
+    {
+      const skRegex = /^(0x)?([0-9a-f]{64})$/i;
+      var isValid = true;
+      if(!skRegex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    function validateCID(x)
+    {
+      const cidRegex = /^([0-9a-z]{46})$/i; 
+      var isValid = true;
+      if(!cidRegex.test(x))
+      {
+        isValid = false;
+      }
+      return isValid;
+    }
+    
+
+    async function submitForm_form_verifyVP(event)
+    {
+      event.preventDefault();
+      //complete rest of the code..
+      if(!validateRK(rk.value.trim()))
+      {
+        document.getElementById("error_rk").innerHTML = "Invalid Re-encryption Key!! Please enter a valid RK.";
+        rk.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_rk").innerHTML = "";
+        rk.classList.remove("error");
+      }
+
+      if(!validateSK(sk.value.trim()))
+      {
+        document.getElementById("error_sk").innerHTML = "Invalid Secret Key!! Please enter a valid SK.";
+        sk.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_sk").innerHTML = "";
+        sk.classList.remove("error");
+      }
+
+      if(!validateCID(cid.value.trim()))
+      {
+        document.getElementById("error_cid").innerHTML = "Invalid CID!! Please enter a valid CID.";
+        cid.classList.add("error");
+      }
+      else
+      {
+        document.getElementById("error_cid").innerHTML = "";
+        cid.classList.remove("error");
+      }
+
+      if(!rk.classList.contains("error") && !sk.classList.contains("error") && !cid.classList.contains("error"))
+      {
+        const formData = {
+          rk: rk.value.trim(),
+          sk: sk.value.trim(),
+          cid: cid.value.trim()
+        };
+
+        // Make an HTTP request to the server
+        const response = await fetch('/decrypt_VP_By_Proxy', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if(data["error"]!= "")
+        {
+          outputVP.innerHTML = `<center><span style="color: red; font-weight: bold;">Error Occured!! Suggestion:</span></center> ${data.suggestion}`;
+        }
+        else
+        {
+          console.log(data.decrypted_VP);
+          vaccinePassport = JSON.parse(data.decrypted_VP);
+          console.log(vaccinePassport);
+          var json = '';
+
+          for (var key in vaccinePassport) 
+          {
+              if (vaccinePassport.hasOwnProperty(key)) 
+              {
+                  json += key + ': ' + vaccinePassport[key] + '\n';
+              }
+          }
+          console.log(json);
+          console.log(document.getElementById("jsonOutput"));
+          document.getElementById("outputVP").innerHTML = '<center><span style="color: red; font-weight: bold;">Vaccine Passport</span></center>'; 
+          jsonOutput.style.display = "block";
+          document.getElementById("jsonOutput").value = json;
+          //document.getElementById("jsonOutput").innerText = json;
+          //outputVP.innerHTML = `<center><span style="color: red; font-weight: bold;">Vaccine Passport</span></center> ${json}`;
+        }
+      }
+    }
+    
+    const homeBtn = document.getElementById("homeButton");
+    homeBtn.addEventListener("click", () => {
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html>
