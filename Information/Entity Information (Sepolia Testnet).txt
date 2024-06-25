@@ -1,0 +1,56 @@
+Government (Govt)
+-------------------------------------------------------------------------
+Ethereum Address: 0x4d77E8A6D235d540Eb5cE251f5455F2e6A100287
+Public Key: 0x04454531ae8ef2a2c0e69488beee9418d57dbe252e02936705fc0b29a851dac295a83b297ace804907a4b808863a93cf3129bc2fd841026973d7e9ceb21d4f8774
+Private Key: 0x5e7b98f752919d051df6c99e51c1f5283c8c75bb49d37ab73de21f7afca25cd8
+
+
+Vaccination Center (VC)
+-------------------------------------------------------------------------
+Ethereum Address: 0x45A7Ba5afF675c246714EFB0a38fE740431CE239
+Public Key: 0x0430530a35766735c47daf9afb9fdfe841dfbedf6c9572ba70e27ee6b3dea9f135ccce81cd1aa139eee9d81060f527b408dafcd67ae4ee55431700b6ea3e85ab89
+Private Key: 0x3f5ce2ed578a670197b132df55d72f80541ba0dfab0908ff802fc52122b51ef4
+
+
+Citizen (C)
+-------------------------------------------------------------------------
+Ethereum Address: 0x26f4Ca5343Fb993844573a6f97c387D5dF6e2889
+Public Key: 0x0405838b1673051979c253f03518a81f36b710dcb5bdc1b67e723cb6dbc8b3eb3dabdec748c1ab321857475e9d167c03edb500f2cc760ac042a6eb99c61d8b0f10
+Private Key: 0xe0efd5a5b162cd556b3f2ae853a40fcc0542f9b41a46c1bc4992a159f98d38d5
+
+Let m be the Personal Identifiable Information of the citizen(C)
+m = <Debendranath Das, Kolkata, 31.05.1993, 123456788765>
+Hash(m) = 0x98bd14650a948ecc8034390bbe9fd3a8a429281e46c35f6a4ecde38a54a23a77
+
+-------------------------------------------------------------------------
+Vaccine Passport (VP) as a JSON File:
+-------------------------------------------------------------------------
+{
+    Citizen Ethereum Address: 0x26f4Ca5343Fb993844573a6f97c387D5dF6e2889
+    Hash of Citizen Personal Info: 0x98bd14650a948ecc8034390bbe9fd3a8a429281e46c35f6a4ecde38a54a23a77
+    Disease Targeted: COVID 19
+    Country of Vaccination: India
+    Timestamp of Vaccination: 30.05.2024 17:23:36
+    Vaccination Center Ethereum Address: 0x45A7Ba5afF675c246714EFB0a38fE740431CE239
+    Vaccination Center ID: 1
+    Vaccine Name: Covishield
+    Vaccine Vial ID: v4
+    Stock ID: 1
+    Vaccine Passport Issuer's (i.e. Govt) Ethereum Address: 0x4d77E8A6D235d540Eb5cE251f5455F2e6A100287
+}
+-----------------------------------------------------------------------------
+Digital Fingerprint of VP (i.e. MD(VP) ): 0x20794d4a7c1ca0e307fb1ae511bea4e9bd0f1e794c6f529cf52cf7191f86e632
+Issuer's (i.e. Govt's) Digital Signature on H(VP): 0xa0439339a12c0f1272ecf2966fab7457264ecf8093a0b355742837d287cf4800584862caa760e440b5cc2fe64a3c3136ade8e78faf737f388073b5015f6ec5ab1b
+CID of the encrypted VP: QmZjFzwZF71rjPxvQCJ2MWtz3WQY4YHpHQEZLkVArX3FH4
+-----------------------------------------------------------------------------
+
+Verifier (VF)
+-------------------------------------------------------------------------
+Ethereum Address: 0x7B00355599d7DCDa1a4E6b863F11CCDae2731370
+Public Key: 0x04f9d70fb6a4af505e7057f889f5d7615743da8b02fdc6d110bb2a5657aa6e32a425bee2279cb41e9f39a1cf21ed050647cb3201704469071d231ae0225c7f1f46
+Private Key: 0x42cfad4856c19ce6741dc0bf6eeb7c3635b26eff2447639945f3d3a124c80cf7
+
+-----------------------------------------------------------------------------------------
+Re-encryption Key (RK): 0xeb45c5acdbc4fb096df7c6b9aa374031474232643ffc97570f8c58558cd0964504b20df79900680b5b2350a775333fb1f122587b7a116cb1a2f0ff4b1e2ae3b47ce6630496a55b77715c84af20480736ebe09651be9c5836a7c4466b5af4213ce0 
+
+Commitment of RK: 0x60b3eece23a28eaa382f0eac872c74033e0df0a8d38b796ae700f31f8c034a91

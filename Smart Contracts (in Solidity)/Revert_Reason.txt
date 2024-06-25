@@ -1,0 +1,121 @@
+RR1: The Govt should initiate the call.
+RR2: VC address cannot be the same as the Govt address.
+RR3: The VC has already been registered in the system.
+RR4: A previous application is currently under process.
+RR5: No application from the VC is currently under process.
+RR6: The VC has not yet applied (either for the first time or since the last rejection).
+RR7: The Govt has already responded with the application hash.
+RR8: Time Limit Exceeded.
+RR9: The Govt has not yet responded with the application hash value.
+RR10: The VC has already provided its decision on the acceptance hash value.
+RR11: Invalid Application Number.
+RR12: The VC has not provided its decision on the acceptance of the application hash.
+RR13: The Govt has already provided its decision on the application acceptance.
+RR14: The VC is not yet registered.
+RR15: The VC's current vaccine stock is not exhausted.
+RR16: The previous refill application is under process.
+RR17: Invalid vcID.
+RR18: Zero vaccine vials cannot be transferred.
+RR19: The VC has not yet applied for refilling the vaccine stock.
+RR20: The VC has already called this function.
+RR21: The Govt has already called this function.
+RR22: Incorrect Service Charge.
+RR23: Incorrect Service Charge Locked by the Govt.
+RR24: Incorrect Call. The VC has not yet applied for refilling the vaccine stock; therefore, no money has been locked.
+RR25: No money to be refunded back to the Govt at present.
+RR26: Citizen Address cannot be the same as the Govt Address.
+RR27: Citizen Address cannot be the same as the Vaccination Center Address.
+RR28: The citizen with the given hash value has already obtained a tokenID.
+RR29: The citizen has already applied for Token ID, and the last application is under process.
+RR30: The citizen has not yet applied for Token ID.
+RR31: Currently, no token application for this citizen is under process.
+RR32: The applicant's address mismatches.
+RR33: The last injecting protocol is not yet completed.
+RR34: No injecting protocol is running at present.
+RR35: Only the intended VC is allowed to lock money.
+RR36: The citizen (with the given cAddr) doesn't possess the intended token ID.
+RR37: Incorrect vcID given; vcID mismatch.
+RR38: Detecting incorrect amount for locking.
+RR39: The citizen has not yet sent the Token ID.
+RR40: The VC has already locked money.
+RR41: The VC has not yet locked the money.
+RR42: The citizen has already locked money.
+RR43: Only the intended VC is allowed to call this function.
+RR44: Vaccine Stock is empty for this VC.
+RR45: The citizen has not yet locked the money.
+RR46: The VC has already committed Vaccine Stock MR.
+RR47: StockID mismatch. VC's Current Stock ID got updated.
+RR48: The VC has not yet committed MT_Proof.
+RR49: The citizen has already provided its first consent.
+RR50: The citizen has not yet provided its first consent.
+RR51: The protocol was aborted as the citizen did not agree to commit MT_proof.
+RR52: The VC has already committed Vial ID.
+RR53: The VC has not yet committed vialID.
+RR54: The citizen has already provided its second consent.
+RR55: The citizen has not yet provided its second consent.
+RR56: The protocol was aborted as the citizen did not agree to the commitment of vial ID.
+RR57: The citizen has already provided its third consent.
+RR58: The citizen has not yet provided its third consent.
+RR59: The citizen has agreed to the authenticity of the vial.
+RR60: The VC has already provided the proof.
+RR61: The citizen has not yet obtained Token ID.
+RR62: Invalid VC Address.
+RR63: The citizen has already been vaccinated.
+RR64: The citizen did not agree to the authenticity of the vaccine vial (i.e., didn't provide consent3).
+RR65: Only the intended VC can exit.
+RR66: The citizen can't exit the protocol at this moment.
+RR67: The VC can't exit the protocol at this moment.
+RR68: The citizen with the given address has already obtained a tokenID.
+RR69: The last verification protocol is not yet terminated between the verifier and the citizen.
+RR70: No verification protocol is running at present between the verifier and the citizen.
+RR71: Incorrect locking amount.
+RR72: Invalid Verification Task ID.
+RR73: Invalid caller, authentication failed.
+RR74: The verification task was completed/terminated in the past.
+RR75: You can't call the function now as no money has been locked yet.
+RR76: Please wait; you can't quit at this moment.
+RR77: The citizen has already locked money and also committed RK earlier.
+RR78: The citizen has not yet committed the Re-encryption key.
+RR79: The verifier has already provided its consent on the received RK.
+RR80: The verifier has not yet provided its consent on the received RK.
+RR81: The verifier disagreed with the commitment of RK.
+RR82: The citizen has already granted access permission to the verifier.
+RR83: The verifier can't call the function now as it did not provide any consent yet.
+RR84: The verifier can't call the function as it disagreed on the received RK's commitment.
+RR85: The citizen has not yet granted access permission to the verifier.
+RR86: No access permission has been granted to the verifier (or, the citizen revoked permission).
+RR87: The verification task has already been completed/terminated.
+RR88: The citizen can't revoke permission as no access has been granted to the verifier at present.
+RR89: The VC has already registered vaccination timestamp for the citizen.
+RR90: The VC has not yet registered vaccination timestamp.
+RR91: The citizen has already provided its acknowledgement for vaccination.
+RR92: The VC can't call at the moment because the time limit for receiving acknowledgment from the citizen has not yet elapsed.
+RR93: The vaccine vial with the given hash value has already been spent.
+RR94: Invalid Vial State.
+RR95: The vial is either SPENT or UNDER_PROTOCOL_EXECUTION.
+RR96: The vial is not in the UNDER_PROTOCOL_EXECUTION state.
+RR97: The citizen's vaccination status is false.
+RR98: A Vaccine Passport has already been issued to the citizen.
+RR99: The citizen's last Vaccine Passport Application is under process.
+RR100: No Vaccine Passport Application of the citizen is currently under process.
+RR101: The citizen has not yet initialized the Vaccine Passport Application.
+RR102: The Govt has already locked money.
+RR103: The vaccine vial is not marked as SPENT.
+RR104: The commitment value of MT_Proof does not match the earlier value given by the Vaccination Center.
+RR105: The Hash of the vialID does not match the earlier commitment value of vialID made by the Vaccination Center.
+RR106: The Govt has not yet locked money.
+RR107: The citizen has already sent vialID and commitment value of MT_Proof.
+RR108: The citizen has not yet sent vialID and the value of MT_Proof commitment.
+RR109: The Govt has already sent its consent1/dissent1.
+RR110: The Govt has not yet sent its consent1/dissent1.
+RR111: The consent1 given by the Govt was False (i.e., Dissent1).
+RR112: The Govt has already provided its consent2/dissent2.
+RR113: The Govt has not yet sent its consent2/dissent2.
+RR114: The consent2 given by the Govt was False (i.e., Dissent2).
+RR115: The Govt has already issued a vaccine passport for the citizen.
+RR116: The Citizen can't call at the moment because the time limit for calling the required function by the Govt has not yet elapsed.
+RR117: The Govt can't call at the moment because the time limit for calling the required function by the citizen has not yet elapsed.
+RR118: The Govt sent consent2 as True.
+RR119: The Govt has already disclosed the Proof.
+RR120: The citizen has not yet received the Vaccine Passport.
+

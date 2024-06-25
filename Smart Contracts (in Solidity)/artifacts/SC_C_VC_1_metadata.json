@@ -1,0 +1,583 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr_SC_VC_Govt",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr_SC_C_Govt",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr_SC_Requirements_check",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_latestProtocolNo",
+						"type": "uint256"
+					}
+				],
+				"name": "abortProtocol",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_ack",
+						"type": "bool"
+					}
+				],
+				"name": "acknowledgeVaccination",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_commit_MT_Proof",
+						"type": "bytes32"
+					}
+				],
+				"name": "commitMTProof",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_commit_vID",
+						"type": "bytes32"
+					}
+				],
+				"name": "commitVialID",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_latestProtocolNo",
+						"type": "uint256"
+					}
+				],
+				"name": "getProtocolDetails",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "getProtocolNoAndStatus",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "injectingProtocolNumberGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "lockMoneyByC",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockMoneyByVC",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockingAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "payDueAmountOfCitizen",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vcAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_latestProtocolNo",
+						"type": "uint256"
+					}
+				],
+				"name": "penalizeCAndTransferMoneyToVC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_latestProtocolNo",
+						"type": "uint256"
+					}
+				],
+				"name": "penalizeVCAndTransferMoneyToC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_consent1",
+						"type": "bool"
+					}
+				],
+				"name": "provideConsent1",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_consent2",
+						"type": "bool"
+					}
+				],
+				"name": "provideConsent2",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_consent3",
+						"type": "bool"
+					}
+				],
+				"name": "provideConsent3",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "registerVaccinationTimestamp",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "sendTokenID",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "_hashes",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_latestProtocolNo",
+						"type": "uint256"
+					}
+				],
+				"name": "submitProof",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vcAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_latestProtocolNo",
+						"type": "uint256"
+					}
+				],
+				"name": "transferMoneyToVC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"acknowledgeVaccination(uint256,bool)": {
+					"notice": "Caller: Citizen When: After the VC registers the vaccination timestamp, the citizen must confirm it by sending an acknowledgment of vaccination  to the SC, through this function within the specified time limit. A positive acknowledgment triggers the instant transfer  of the service charge to the VC, and the VC's locked funds are also released. Additionally, the vaccine injection protocol  successfully concludes. Previous Function: registerVaccinationTimestamp by VC*"
+				},
+				"commitMTProof(address,bytes32)": {
+					"notice": "Caller: Vaccination Center When: After the citizen locked money, VC needs to commit the MT Proof. Previous Function: lockMoneyByC() by Citizen*"
+				},
+				"commitVialID(address,bytes32)": {
+					"notice": "Caller: Vaccination Center When: Receiving positive consent1 from citizen, VC will commit the vaccine vial ID. Previous Function: provideConsent1() by Citizen*"
+				},
+				"lockMoneyByC(uint256)": {
+					"notice": "Caller: Citizen When: Once VC locked money by calling lockMoneyByVC(), citizen also locks money by calling this function. Previous Function: lockMoneyByVC() by VC*"
+				},
+				"lockMoneyByVC(address)": {
+					"notice": "Caller: Vaccination Center (holding a valid vcID) When: Once citizen initiates the vaccine injecting protocol by sending tokenID,  the vaccination center calls the function to lock money on SC. Previous Function: sendTokenID() by Citizen*"
+				},
+				"provideConsent1(uint256,bool)": {
+					"notice": "Caller: Citizen When: After VC sends the MT_Proof to Citizen, Citizen checks if it matches with the commitment made by VC and accordingly provides its consent. If citizen isn't agreed with the commitment the protocol gets aborted. Previous Function: commitMTProof() by VC*"
+				},
+				"provideConsent2(uint256,bool)": {
+					"notice": "Caller: Citizen When: Receiving vaccine vial, citizen will check if the vialID matches with the commitment made by VC. Previous Function: commitVialID() by VC*"
+				},
+				"provideConsent3(uint256,bool)": {
+					"notice": "Caller: Citizen When: If the commitment matches with the vial ID, the citizen will check if the given vial is a authentic one - i.e. the vial belongs to the vaccine set supplied by the Govt. Previous Function: provideConsent2 by Citizen*"
+				},
+				"registerVaccinationTimestamp(address)": {
+					"notice": "Caller: Vaccination Center When: Once the citizen provides consent3, VC will begin injecting the vaccine and then register the timestamp of vaccination on the BC by calling this function.    Previous Function: provideConsent3 by Citizen*"
+				},
+				"sendTokenID(uint256)": {
+					"notice": "Caller: Citizen (holding a valid TokenID and not yet vaccinated) When: To initiate Vaccine Injecting Process. Previous Function: NA Change function name to beginProtocol() as mentioned in the paper.*"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Updated Smart Contracts/SC_C_VC_1.sol": "SC_C_VC_1"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"Updated Smart Contracts/SC_C_Govt.sol": {
+			"keccak256": "0xd59d1e239bf3a02a7d361ec3900f0178547e3a2ffe4e8fe63d821f3a9558b66b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e9778a6e16cf4035fdef5d7e29b53aef04b93b88f6a8797e43af0e08ad282917",
+				"dweb:/ipfs/QmUdFX8DVwVfHC5LCf7f9pdt62dvxAmyiLdGCN7EdgwXrs"
+			]
+		},
+		"Updated Smart Contracts/SC_C_VC_1.sol": {
+			"keccak256": "0x5aa42869134b459bce27dbb322b0dea4e5f9beab754d16cb6f2e344a5cad3633",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d5eb55b7e20ff2a560e2221a75a16d92f8aeabbc77ae1dc70227a78743149fd0",
+				"dweb:/ipfs/QmRBi58HirU8NipteH8Ru42FLBf3XzjFiq5ew6qQFejZui"
+			]
+		},
+		"Updated Smart Contracts/SC_Requirements_Check.sol": {
+			"keccak256": "0x6298a789437e7f82d1c302fc1bfad59c8cdb9e09edf2343285b4119e11367e58",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://15fe9329316757ba0cff745f361e814b05145ed1436507207c499bca8bd7b142",
+				"dweb:/ipfs/QmNn679EKme6Ej2V864vs31iKE8b6oKEL63UA6Q6FjzGJz"
+			]
+		},
+		"Updated Smart Contracts/SC_VC_Govt.sol": {
+			"keccak256": "0xe00bd41d901b0ecb70b100b906d781516c50ef02fc619941995a5759c0a2ead8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6a5a9cbaa461d23f24cc5ec2d0d27dc97edb19f1e42b05473ddb32cce7df3769",
+				"dweb:/ipfs/Qmc79CXuppVtsNUns4NKggk77W6yHAZG3BKMckXCd9Pu2C"
+			]
+		}
+	},
+	"version": 1
+}

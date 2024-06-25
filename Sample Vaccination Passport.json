@@ -1,0 +1,15 @@
+
+{
+    "Citizen Ethereum Address" : "0x26f4Ca5343Fb993844573a6f97c387D5dF6e2889" ,
+    "Hash of Citizen Personal Info" : "0x98bd14650a948ecc8034390bbe9fd3a8a429281e46c35f6a4ecde38a54a23a77" ,
+    "Disease Targeted" : "COVID 19" ,
+    "Country of Vaccination" : "India" ,
+    "Timestamp of Vaccine Passport Generation" : "01.10.2021 10:35:52" ,
+    "Vaccination Center Ethereum Address" : "0x45A7Ba5afF675c246714EFB0a38fE740431CE239" ,
+    "Vaccination Center ID" : "001" ,
+    "Vaccine Name" : "Covishield" ,
+    "Vaccine Vial ID" : "v4",
+    "Stock ID" : "1",
+    "Vaccine Passport Issuer's (i.e. Govt) Ethereum Address" : "0x4d77E8A6D235d540Eb5cE251f5455F2e6A100287"
+}
+

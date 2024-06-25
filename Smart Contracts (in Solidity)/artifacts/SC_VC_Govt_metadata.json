@@ -1,0 +1,873 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "amountToBeRefundedToGovt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vcAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_hash_of_appl",
+						"type": "bytes32"
+					}
+				],
+				"name": "applHash",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_cardinality",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_MR",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "commitVaccineSet",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_applID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_decision",
+						"type": "bool"
+					}
+				],
+				"name": "decideOnAcceptanceAppl",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_decision",
+						"type": "bool"
+					}
+				],
+				"name": "decideOnAcceptanceHash",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_decision",
+						"type": "bool"
+					}
+				],
+				"name": "decideOnAcceptanceVaccineSet",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getGovt",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_stockID",
+						"type": "uint256"
+					}
+				],
+				"name": "getStockInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "getVC",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getVCFromvcID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "vcID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentStockID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "no_of_vaccine_vials_remaining",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "money_earned",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_vialHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "getVialState",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "getvcAddr",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vcAddr",
+						"type": "address"
+					}
+				],
+				"name": "getvcID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "govt",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "isValidVC",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "latestVCRefillApplNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "latestVCRegistrationApplNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "lockedServiceChargeForVC",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vcAddr",
+						"type": "address"
+					}
+				],
+				"name": "payServiceCharge",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "perVaccineServiceCharge",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "refillApplIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "refillStockAppl",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "refillVaccineAppl",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp_refill_Appl",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cardinality_of_set",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "commitment_vaccine_set",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_commit_vaccine_set",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "accept_vaccine_set",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_accept_vaccine_set",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "regApplIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "serviceChargeAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_vialHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_state",
+						"type": "uint8"
+					}
+				],
+				"name": "setVialState",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stockIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "takeAwayLockedMoney",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timestampAppl",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vaccineStockBelongsTo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vaccineStockDetails",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "stockID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_stock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "no_of_vaccine_vials_supplied",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "stock_MR",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "vcAddrTovcID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "vcIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vcIDTovcAddr",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vcRefillApplBelongsTo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vcRefillApplUnderProcess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vcRegistrationAppl",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp_reg_appl",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hash_of_reg_appl",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_hash_reg_appl",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "acceptance_of_reg_appl_hash",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_acceptance_reg_appl_hash",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "acceptance_of_reg_appl",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_acceptance_reg_appl",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "applID",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vcRegistrationApplBelongsTo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "vcRegistrationApplUnderProcess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "vialState",
+				"outputs": [
+					{
+						"internalType": "enum SC_VC_Govt.VialState",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Updated Smart Contracts/SC_VC_Govt.sol": "SC_VC_Govt"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"Updated Smart Contracts/SC_VC_Govt.sol": {
+			"keccak256": "0xe00bd41d901b0ecb70b100b906d781516c50ef02fc619941995a5759c0a2ead8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6a5a9cbaa461d23f24cc5ec2d0d27dc97edb19f1e42b05473ddb32cce7df3769",
+				"dweb:/ipfs/Qmc79CXuppVtsNUns4NKggk77W6yHAZG3BKMckXCd9Pu2C"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,415 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr_SC_C_Govt",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "accessControl",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					}
+				],
+				"name": "fetchVPInfo",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					}
+				],
+				"name": "grantAccessPermission",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockMoney",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_commitRK",
+						"type": "bytes32"
+					}
+				],
+				"name": "lockMoneyAndcommitRK",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_decision",
+						"type": "bool"
+					}
+				],
+				"name": "provideConsent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					}
+				],
+				"name": "quit1ByVF",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					}
+				],
+				"name": "quit2ByC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					}
+				],
+				"name": "quit3ByVF",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					}
+				],
+				"name": "quit4ByC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vfAddr",
+						"type": "address"
+					}
+				],
+				"name": "revokePermission",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "verificationProtocolCurrentlyRuns",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_verificationTaskID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_result",
+						"type": "bool"
+					}
+				],
+				"name": "verificationResult",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "verifyVP",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "verificationTaskID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "vfAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_money_by_VF",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "commit_RK",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_money_and_commit_RK_by_C",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "consent",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_provide_consent",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_grant_permission",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_verification_result",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_unlock_money",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isValidVP",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"fetchVPInfo(uint256)": {
+					"notice": "Caller: Verifier When: Once the citizen grants permission, next the verifier fetches useful information about  the vaccine passport. It's not a transaction, rather  a view function Previous Function: grantPermissionAndLockMoney() by citizen*"
+				},
+				"grantAccessPermission(uint256)": {
+					"notice": "Caller: Citizen When: Once the verifier sends its positive consent, the citizen must grant access permission to the verifier, so that it can fetch useful info about the vaccine passport. Previous Function: provideConsent() by verifier*"
+				},
+				"lockMoney(address)": {
+					"notice": "Caller: Verifier When: To initiate the Vaccine Passport Verification Process, the verfier seeks permission from  the citizen and locks money. A unique verfication task ID gets generated. Previous Function: NA*"
+				},
+				"lockMoneyAndcommitRK(uint256,bytes32)": {
+					"notice": "Caller: Citizen When: Once the verifier locks money and initiates the verfication process, the citizen also locks  the money within a fixed timelimit and commits the Re-encryption Key. Previous Function: lockMoney() by VF*"
+				},
+				"provideConsent(uint256,bool)": {
+					"notice": "Caller: Verfier When: Receiving RK in offchain, the verifier provides its consent if the received RK matches its commitment. Previous Function: fetchVPInfo() by verifier*"
+				},
+				"quit1ByVF(uint256)": {
+					"notice": "Caller: Verifier When: If the citizen does not respond by locking money on smart contract within the timeout period, after initiation of the verification process, verifier can withdraw the locked money. Previous Function: lockMoney() by VF (IDEAL Case: lockMoneyAndcommitRK() by C)*"
+				},
+				"quit2ByC(uint256)": {
+					"notice": "Caller: Citizen When: After sending the RK to verifier, if the verifier does not provide it's consent within timeout, the citizen can withdraw its locked money. Here, the system will not penalize the verfier as it might be possible that the key - RK is lost in the network. Or the citizen not at all sent the key to VF, although key commitment has been done on BC. Previous Function: lockMoneyAndcommitRK() by C (IDEAL Case: provideConsent() by VF)*"
+				},
+				"quit3ByVF(uint256)": {
+					"notice": "Caller: Verifier When: If the citizen does not grant access permission within timeout even after receiving  positive consent from the verifier, verifier can withdraw the locked money. Here, the system penalizes the citizen by deducting its locked amount. Previous Function: provideConsent() by VF (IDEAL Case: grantAccessPermission() by C)*"
+				},
+				"quit4ByC(uint256)": {
+					"notice": "Caller: Citizen When: Fetching vp details, if the verifier does not provide the verification result within timeout,  the citizen can quit the protocol and unlock it's money. Here, the system will penalize the verfier  by deducting it's locked amount. Previous Function: grantAccessPermission() by C (IDEAL Case: fetchVPInfo() by VF)*"
+				},
+				"revokePermission(address)": {
+					"notice": "Caller: Citizen When: Anytime, if the citizen wants to revoke access permission from a verfier, to whom the access was granted earlier, citizen can invoke this function. Previous Function: No dependency.*"
+				},
+				"verificationResult(uint256,bool)": {
+					"notice": "Caller: Verifier When: Finally, the verifier retrieves the citizen's VP and validates the fields,matches with the stored hash of VP, verifies the issuer's signature and then  decide on the validity of vaccine passport. Previous Function: fetchVPInfo() by verifier*"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Updated Smart Contracts/SC_C_VF.sol": "SC_C_VF"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"Updated Smart Contracts/SC_C_Govt.sol": {
+			"keccak256": "0xd59d1e239bf3a02a7d361ec3900f0178547e3a2ffe4e8fe63d821f3a9558b66b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e9778a6e16cf4035fdef5d7e29b53aef04b93b88f6a8797e43af0e08ad282917",
+				"dweb:/ipfs/QmUdFX8DVwVfHC5LCf7f9pdt62dvxAmyiLdGCN7EdgwXrs"
+			]
+		},
+		"Updated Smart Contracts/SC_C_VF.sol": {
+			"keccak256": "0xd211fb3405c7d449feec9b057bfc93938cc774a5e521326efd785371b8fa1238",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://b40ab500a1ac8b407d0ec370d53feff044f5b537911603985f27d69d0b74c927",
+				"dweb:/ipfs/QmbpNzWMomv8i3QG68WfJWC8tLYTbaG1D7UFYw6uuswM9H"
+			]
+		},
+		"Updated Smart Contracts/SC_VC_Govt.sol": {
+			"keccak256": "0xe00bd41d901b0ecb70b100b906d781516c50ef02fc619941995a5759c0a2ead8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6a5a9cbaa461d23f24cc5ec2d0d27dc97edb19f1e42b05473ddb32cce7df3769",
+				"dweb:/ipfs/Qmc79CXuppVtsNUns4NKggk77W6yHAZG3BKMckXCd9Pu2C"
+			]
+		}
+	},
+	"version": 1
+}

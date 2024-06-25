@@ -1,0 +1,450 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr_SC_VC_Govt",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_commit_citizen_info",
+						"type": "bytes32"
+					}
+				],
+				"name": "applForTokenID",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "citizenAddrToCitizenHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "citizenHashToTokenID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "citizenTokenAppl",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "applicant_addr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "commit_citizen_info",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_token_appl",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "token_appl_number",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_token_appl_verification",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "token_appl_verification_result",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "citizenTokenApplUnderProcess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "getCitizen",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "getTokenID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "getVaccinePassport",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_cID",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_message_digest_vp",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "string",
+						"name": "_sig_on_message_digest_vp",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_timestamp_create_vp",
+						"type": "uint256"
+					}
+				],
+				"name": "issueVaccinePassport",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "latestTokenApplNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "setVaccinationStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenApplNumberGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenIDToCitizenDetails",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "citizen_info_digest",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "vaccination_status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "vaccine_passport_issued",
+						"type": "bool"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "cID",
+								"type": "string"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "message_digest_vp",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "string",
+								"name": "sig_on_message_digest_vp",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp_create_vp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct SC_C_Govt.VaccinePassport",
+						"name": "vp",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_applicant_addr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_decision",
+						"type": "bool"
+					}
+				],
+				"name": "verifyTokenAppl",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Updated Smart Contracts/SC_C_Govt.sol": "SC_C_Govt"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"Updated Smart Contracts/SC_C_Govt.sol": {
+			"keccak256": "0xd59d1e239bf3a02a7d361ec3900f0178547e3a2ffe4e8fe63d821f3a9558b66b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e9778a6e16cf4035fdef5d7e29b53aef04b93b88f6a8797e43af0e08ad282917",
+				"dweb:/ipfs/QmUdFX8DVwVfHC5LCf7f9pdt62dvxAmyiLdGCN7EdgwXrs"
+			]
+		},
+		"Updated Smart Contracts/SC_VC_Govt.sol": {
+			"keccak256": "0xe00bd41d901b0ecb70b100b906d781516c50ef02fc619941995a5759c0a2ead8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6a5a9cbaa461d23f24cc5ec2d0d27dc97edb19f1e42b05473ddb32cce7df3769",
+				"dweb:/ipfs/Qmc79CXuppVtsNUns4NKggk77W6yHAZG3BKMckXCd9Pu2C"
+			]
+		}
+	},
+	"version": 1
+}

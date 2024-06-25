@@ -1,0 +1,196 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr_SC_VC_Govt",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr_SC_C_Govt",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "checkForCitizenNotYetVaccinated",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "checkForRegisteredVC",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_party",
+						"type": "address"
+					}
+				],
+				"name": "checkForRegisteredVC",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_vialHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "checkForSpentVaccineVial",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_vialHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "checkForUnderProtocolExecVaccineVial",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_vialHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "checkForUnusedVaccineVial",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_vcID",
+						"type": "uint256"
+					}
+				],
+				"name": "checkForVaccineStock",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_party",
+						"type": "address"
+					}
+				],
+				"name": "checkForValidCitizenTokenID",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "checkVaccinationAndVPStatusOfCitizen",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Updated Smart Contracts/SC_Requirements_Check.sol": "SC_Requirements_Check"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"Updated Smart Contracts/SC_C_Govt.sol": {
+			"keccak256": "0xd59d1e239bf3a02a7d361ec3900f0178547e3a2ffe4e8fe63d821f3a9558b66b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e9778a6e16cf4035fdef5d7e29b53aef04b93b88f6a8797e43af0e08ad282917",
+				"dweb:/ipfs/QmUdFX8DVwVfHC5LCf7f9pdt62dvxAmyiLdGCN7EdgwXrs"
+			]
+		},
+		"Updated Smart Contracts/SC_Requirements_Check.sol": {
+			"keccak256": "0x6298a789437e7f82d1c302fc1bfad59c8cdb9e09edf2343285b4119e11367e58",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://15fe9329316757ba0cff745f361e814b05145ed1436507207c499bca8bd7b142",
+				"dweb:/ipfs/QmNn679EKme6Ej2V864vs31iKE8b6oKEL63UA6Q6FjzGJz"
+			]
+		},
+		"Updated Smart Contracts/SC_VC_Govt.sol": {
+			"keccak256": "0xe00bd41d901b0ecb70b100b906d781516c50ef02fc619941995a5759c0a2ead8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6a5a9cbaa461d23f24cc5ec2d0d27dc97edb19f1e42b05473ddb32cce7df3769",
+				"dweb:/ipfs/Qmc79CXuppVtsNUns4NKggk77W6yHAZG3BKMckXCd9Pu2C"
+			]
+		}
+	},
+	"version": 1
+}

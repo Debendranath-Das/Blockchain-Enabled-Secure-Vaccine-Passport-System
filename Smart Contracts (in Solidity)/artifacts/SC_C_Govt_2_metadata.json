@@ -1,0 +1,446 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr_SC_VC_Govt",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr_SC_C_Govt",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr_SC_C_VC_1",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr_SC_Requirements_Check",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "VPApplNumberGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "addr_SC_C_Govt",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "addr_SC_C_VC_1",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "addr_SC_Requirements_Check",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "addr_SC_VC_Govt",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "_hashes",
+						"type": "bytes32[]"
+					}
+				],
+				"name": "discloseProof",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "getVPDetails",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "initiateVPApplAndlockMoney",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockMoneyByGovt",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockingAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "quit1ByC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "quit2ByGovt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "quit3ByC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "quit4ByC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "quit5ByC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "quit6ByC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_consent1",
+						"type": "bool"
+					}
+				],
+				"name": "sendConsent1",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_consent2",
+						"type": "bool"
+					}
+				],
+				"name": "sendConsent2",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_vID",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_commit_MT_Proof",
+						"type": "bytes32"
+					}
+				],
+				"name": "sendVaccinationProof",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_MD_VP",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "string",
+						"name": "_sign",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_cID",
+						"type": "string"
+					}
+				],
+				"name": "uploadVPInfoAndGetPayment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"discloseProof(address,bytes32[])": {
+					"notice": "Caller: Govt When: If Govt sends FALSE consent2, then it needs to give proof of misbehaviour within time limit by calling this function. Previous Function: sendConsent2 by Govt"
+				},
+				"initiateVPApplAndlockMoney()": {
+					"notice": "Caller: Citizen (holding a valid TokenID and vaccinated, not yet obtained Vaccine Passport) When: Citizen initiates Vaccine Passport Application Process by locking money into SC. Previous Function: NA*"
+				},
+				"lockMoneyByGovt(address)": {
+					"notice": "Caller: Govt When: Once citizen initiates the vaccine passport application,  the Govt calls the function to lock money on SC. Previous Function: initiateVPAppl() by Citizen*"
+				},
+				"quit1ByC()": {
+					"notice": "Caller: Citizen When: If the Govt doesn't respond within timeout once the citizen initiates VP application process,  the citizen can unlock its locked money and protocol is aborted. Previous Function: initiateVPApplAndlockMoney() by C (Ideal Case: lockMoneyByGovt() by Govt)"
+				},
+				"quit2ByGovt(address)": {
+					"notice": "Caller: Govt When: If the citizen does not provide vaccination proof within timeout, Govt  can quit the protocol unlocking its money. In this case, citizen will be penalized! Previous Function: lockMoneyByGovt() by Govt (Ideal Case: sendVaccinationProof)*"
+				},
+				"quit3ByC()": {
+					"notice": "Caller: Citizen When: If the Govt doesn't provide its first consent within time limit, citizen can quit the protocol. Previous Function: sendVaccinationProof() by C (Ideal Case: sendConsent1 by Govt)"
+				},
+				"quit4ByC()": {
+					"notice": "Caller: Citizen When: After providing the first consent if the Govt doesn't provide its second consent within time limit, citizen can quit the protocol. Previous Function: sendConsent1() by Govt (Ideal Case: sendConsent2 by Govt)"
+				},
+				"quit5ByC()": {
+					"notice": "Caller: Citizen When: If Govt does not disclose the proof within timelimit after sending FALSE consent2, then the citizen can unlock money and abort the protocol. Govt is penalized in this case. Previous Function: sendConsent2 by Govt (Ideal case: discloseProof() by Govt)"
+				},
+				"quit6ByC()": {
+					"notice": "Caller: Citizen When: Providing the consent2 as TRUE, if the Govt doesn't issue the citizen's vaccine passport within time limit, citizen can quit the protocol. Previous Function: sendConsent2() by Govt (Ideal Case: uploadVPInfoAndGetPayment by Govt)"
+				},
+				"sendConsent1(address,bool)": {
+					"notice": "Caller: Govt When: Next Govt sends its consent1/dissent1 based on the received proof. Previous Function: sendVaccinationProof() by Citizen*"
+				},
+				"sendConsent2(address,bool)": {
+					"notice": "Caller: Govt When: Sending consent1 Govt verifies membership proof for the vial ID and call this function as verfication result. Previous Function: sendConsent1() by Citizen*"
+				},
+				"sendVaccinationProof(string,bytes32)": {
+					"notice": "Caller: Citizen When: Once Govt locks the money, the Citizen provides vialID and the commitment value of MT_Proof. Previous Function: lockMoneyByGovt() by Govt*"
+				},
+				"uploadVPInfoAndGetPayment(address,bytes32,string,string)": {
+					"notice": "Caller: Govt When: Once the Govt provides positive consent2, it will begin generating the vaccine passport(VP) for the citizen. Govt computes the VP's message digest(MD), makes a signature on MD, and uploads this information on BC for accountability. Then Govt encrypts the citizen's VP and uploads it to IPFS, then store the IPFS's content identifier, i.e. CID, on BC.     Previous Function: sendConsent2 by Govt"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Updated Smart Contracts/SC_C_Govt_2.sol": "SC_C_Govt_2"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"Updated Smart Contracts/MerkleProofLibrary.sol": {
+			"keccak256": "0xea1b7bfbbcbf5aaf7abba02bf8d6ffb998407e30b910ae851d22c11f77c1abff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://26aa46dfdeba1414f0691bbe2efacbd9e1a563009b7ee9db083be8ecc0ad2202",
+				"dweb:/ipfs/QmXf31TJwuAi9xvJjLQJTYu127iRJA95kiirZafrLoCVdr"
+			]
+		},
+		"Updated Smart Contracts/SC_C_Govt.sol": {
+			"keccak256": "0xd59d1e239bf3a02a7d361ec3900f0178547e3a2ffe4e8fe63d821f3a9558b66b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e9778a6e16cf4035fdef5d7e29b53aef04b93b88f6a8797e43af0e08ad282917",
+				"dweb:/ipfs/QmUdFX8DVwVfHC5LCf7f9pdt62dvxAmyiLdGCN7EdgwXrs"
+			]
+		},
+		"Updated Smart Contracts/SC_C_Govt_2.sol": {
+			"keccak256": "0xa9b5118e30071ac3b8ab32c335404ba4b022eb5fa07432be46dadd39451f46ab",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://a050a14515f483bf6818d9e0d4d3060b9801a49b1e65ee6abe1162afe1f76b0d",
+				"dweb:/ipfs/QmeAwrKTsTAsMxcikh8JvksYzunJM5rGRr9Z2EMryHsDrR"
+			]
+		},
+		"Updated Smart Contracts/SC_C_VC_1.sol": {
+			"keccak256": "0x5aa42869134b459bce27dbb322b0dea4e5f9beab754d16cb6f2e344a5cad3633",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d5eb55b7e20ff2a560e2221a75a16d92f8aeabbc77ae1dc70227a78743149fd0",
+				"dweb:/ipfs/QmRBi58HirU8NipteH8Ru42FLBf3XzjFiq5ew6qQFejZui"
+			]
+		},
+		"Updated Smart Contracts/SC_Requirements_Check.sol": {
+			"keccak256": "0x6298a789437e7f82d1c302fc1bfad59c8cdb9e09edf2343285b4119e11367e58",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://15fe9329316757ba0cff745f361e814b05145ed1436507207c499bca8bd7b142",
+				"dweb:/ipfs/QmNn679EKme6Ej2V864vs31iKE8b6oKEL63UA6Q6FjzGJz"
+			]
+		},
+		"Updated Smart Contracts/SC_VC_Govt.sol": {
+			"keccak256": "0xe00bd41d901b0ecb70b100b906d781516c50ef02fc619941995a5759c0a2ead8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6a5a9cbaa461d23f24cc5ec2d0d27dc97edb19f1e42b05473ddb32cce7df3769",
+				"dweb:/ipfs/Qmc79CXuppVtsNUns4NKggk77W6yHAZG3BKMckXCd9Pu2C"
+			]
+		}
+	},
+	"version": 1
+}
